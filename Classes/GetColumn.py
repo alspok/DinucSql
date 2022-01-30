@@ -26,6 +26,7 @@ class GetColumn():
                                            (Dinuctbl.c.description.notlike('%mito%')) & 
                                            (Dinuctbl.c.di_diff) &
                                            (Dinuctbl.c.di_shuffle_diff))
+        query = sq.select(Dinuctbl).order_by(Dinuctbl.c.di_diff)
         
         di_diff = [row.di_diff for row in engine.execute(query)]
         di_shuffle_diff = [row.di_shuffle_diff for row in engine.execute(query)]
