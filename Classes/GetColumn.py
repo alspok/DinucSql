@@ -1,3 +1,4 @@
+from re import S
 from Classes.InitVars import InitVars as iv
 import sqlalchemy as sq
 from sqlalchemy import or_, and_
@@ -19,16 +20,25 @@ class GetColumn():
         # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.notlike('%mito%'))
         # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.like('%plasm%'))
         # query = sq.select(Dinuctbl).filter((Dinuctbl.c.description.like('%mito%') | Dinuctbl.c.seq_length > 9000))
+        # query = sq.select(Dinuctbl)
+        # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.notlike('%mito%'))
+        # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.like('%mito%'))
+        # query = sq.select(Dinuctbl).filter((Dinuctbl.c.id) &
+        #                                    (Dinuctbl.c.description.notlike('%mito%')) & 
+        #                                    (Dinuctbl.c.di_diff) &
+        #                                    (Dinuctbl.c.di_shuffle_diff))
+        # query = sq.select(Dinuctbl).filter((Dinuctbl.c.description.notlike('%mito%')) &
+        #                                    (Dinuctbl.c.description.notlike('%chlorop%')) &
+        #                                    (Dinuctbl.c.description.notlike('NW_%')))
+        
+        # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.notlike('%mito%'))
+        
         query = sq.select(Dinuctbl)
-        query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.notlike('%mito%'))
-        query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.like('%mito%'))
-        query = sq.select(Dinuctbl).filter((Dinuctbl.c.id) &
-                                           (Dinuctbl.c.description.notlike('%mito%')) & 
-                                           (Dinuctbl.c.di_diff) &
-                                           (Dinuctbl.c.di_shuffle_diff))
-        query = sq.select(Dinuctbl).order_by(Dinuctbl.c.di_diff)
         
         di_diff = [row.di_diff for row in engine.execute(query)]
-        di_shuffle_diff = [row.di_shuffle_diff for row in engine.execute(query)]
+        mono_shuffle = [row.mono_shuffle_diff for row in engine.execute(query)]
+        di_shuffle = [row.di_shuffle_diff for row in engine.execute(query)]
+        tri_shuffle = [row.tri_shuffle_diff for row in engine.execute(query)]
         
-        return di_diff, di_shuffle_diff
+        
+        return di_diff, mono_shuffle, di_shuffle, tri_shuffle
