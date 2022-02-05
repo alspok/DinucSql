@@ -3,7 +3,7 @@ from ntpath import join
 from Classes.InitVars import InitVars as iv
 from Classes.GetColumn import GetColumn as gc
 from Classes.StringToFloat import StringToFloat
-from MatPlot import simplePlot, errorPlot
+from MatPlot import simplePlot, multiFigurePlot, subPlots
 import sqlalchemy as db
 from pathlib import Path
 
@@ -13,7 +13,8 @@ def dinucSql() -> None:
     # di_shuffle_diff = StringToFloat().stringToFloat(di_shuffle_diff)
 
     # simplePlot(di_diff)
-    errorPlot(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
+    #multiFigurePlot(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
+    subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
     pass
 
 
