@@ -73,7 +73,6 @@ def subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle):
 
     axs[0].set_title('Fig.1 Dinuc diff (blue) and seq shuffled by dinuc diff (red) of Archaea genomes')
     axs[0].grid()
-    # fig.gca().yaxis.grid(linestyle='-', linewidth=0.2)
     axs[0].plot(di_diff, color='blue', linestyle='none', marker='.')
     axs[0].plot(di_shuffle_mean, color='red', linestyle='none', marker='|')
     
