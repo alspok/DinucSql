@@ -13,7 +13,7 @@ def dinucSql() -> None:
     # di_shuffle_diff = StringToFloat().stringToFloat(di_shuffle_diff)
 
     # simplePlot(di_diff)
-    #multiFigurePlot(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
+    # multiFigurePlot(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
     subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
     pass
 
