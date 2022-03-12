@@ -2,7 +2,7 @@ from sys import stderr
 from turtle import color
 import matplotlib.pyplot as plt
 import statistics as stat
-import random
+from Classes.InitVars import InitVars as iv
 
 from Classes.StringToFloat import StringToFloat
 
@@ -71,17 +71,17 @@ def subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle):
     # fig = plt.figure()
     fig, axs = plt.subplots(nrows=3, ncols=1)
 
-    axs[0].set_title('Fig.1 Dinuc diff (blue) and seq shuffled by dinuc diff (red) of Archaea genomes')
+    axs[0].set_title(f'Fig.1 Dinuc diff (blue) and seq shuffled by dinuc diff (red) of {iv.out_name} genomes')
     axs[0].grid()
     axs[0].plot(di_diff, color='blue', linestyle='none', marker='.')
     axs[0].plot(di_shuffle_mean, color='red', linestyle='none', marker='|')
     
-    axs[1].set_title('Fig.2 Seq shuffled by mononuc diff of Archaea genomes')
+    axs[1].set_title(f'Fig.2 Seq shuffled by mononuc diff of {iv.out_name} genomes')
     axs[1].grid()
     axs[1].plot(mono_shuffle_mean, color='black', linestyle='none', marker='|')
     axs[1].plot(di_diff, color='blue', linestyle='none', marker='.')
     
-    axs[2].set_title('Fig.3 Seq shuffled by trinuc diff of Arcaea genomes')
+    axs[2].set_title(f'Fig.3 Seq shuffled by trinuc diff of {iv.out_name} genomes')
     axs[2].grid()
     axs[2].plot(tri_shuffle_mean, color='green', linestyle='none', marker='|')
     axs[2].plot(di_diff, color='blue', linestyle='none', marker='.')
