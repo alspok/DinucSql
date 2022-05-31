@@ -1,6 +1,6 @@
+import sqlalchemy as sq
 from collections import defaultdict
 from Classes.InitVars import InitVars as iv
-import sqlalchemy as sqalch
 from sqlalchemy import MetaData, or_, and_
 from sqlalchemy.orm import Load, load_only, defer
 
@@ -8,8 +8,8 @@ class GetColumn():
     def __init__(self) -> None:
         self.db = iv.db_file
         self.tbl = iv.db_table
-        self.engine = sqalch.create_engine("sqlite:///" + self.db)
-        self.meta_data = sqalch.MetaData(bind=self.engine)
+        self.engine = sq.create_engine(f"sqlite:///{self.db}")
+        self.meta_data = sq.MetaData(bind=self.engine)
         MetaData.reflect(self.meta_data)
         self.Dinuctbl = self.meta_data.tables[self.tbl]
         pass
@@ -39,7 +39,7 @@ class GetColumn():
     
         # query = sq.select(Dinuctbl).filter(Dinuctbl.c.description.notlike('%mito%'))
         
-        query = sqalch.select(self.Dinuctbl)
+        query = sq.select(self.Dinuctbl)
         
         di_diff = [row.di_diff for row in self.engine.execute(query)]
         mono_shuffle = [row.mono_shuffle_diff for row in self.engine.execute(query)]
@@ -50,7 +50,8 @@ class GetColumn():
         return di_diff, mono_shuffle, di_shuffle, tri_shuffle
     
     def getDinucColumn(self):
-        query = sqalch.select(self.Dinuctbl).where(self.Dinuctbl.c.id == 84)
+        query = sq.select(self.Dinuctbl).where(self.Dinuctbl.c.id == 84)
+        
         dinuc_dict = {}
         for item in self.engine.execute(query):
             item = dict(item)

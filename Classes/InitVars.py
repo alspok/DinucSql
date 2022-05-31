@@ -11,9 +11,9 @@ class InitVars():
         'ta', 'tc', 'tg', 'tt'
     ]
 
-    db_path = "F:/Procaryote/Enterobacteria/"
-    db_name = "enterobacteria.sqlite3"
+    db_path = "C:\\Users\\hp\\source\\repos\\DinucFrames\\DBResults\\"
+    db_name = "archaea_dinuc.sqlite3"
     out_name = db_name.split('.')[0].upper()
     
     db_file = join(db_path, db_name)
-    db_table = "dinuctbl"
+    db_table = "dinuc"
