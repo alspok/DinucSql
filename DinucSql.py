@@ -12,7 +12,7 @@ def dinucSql() -> None:
     # subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle)
     # pass
 
-    di_dict = GetColumn().getDinucColumn()
+    di_dict = GetColumn().getColumn()
     MatPlot().dictPlot(di_dict)
     pass
 

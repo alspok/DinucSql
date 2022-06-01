@@ -7,7 +7,7 @@ class MatPlot():
     def __init__(self) -> None:
         pass
 
-    def simplePlot(plot_list: list) -> None:
+    def simplePlot(self, plot_list: list) -> None:
         plt.figure(figsize=(18, 6))
         plt.gca().yaxis.grid(linestyle='-', linewidth=0.2)
         # plt.gca().yaxis.grid(True)
@@ -17,7 +17,7 @@ class MatPlot():
         
         pass
 
-    def multiFigurePlot(di_diff, mono_shuffle, di_shuffle, tri_shuffle) -> None:
+    def multiFigurePlot(self, di_diff, mono_shuffle, di_shuffle, tri_shuffle) -> None:
         mono_float = StringToFloat().stringToFloat(mono_shuffle)
         mono_shuffle_mean = [stat.mean(item) for item in mono_float] 
         di_float = StringToFloat().stringToFloat(di_shuffle)
@@ -50,7 +50,7 @@ class MatPlot():
 
         pass
 
-    def subPlots(di_diff, mono_shuffle, di_shuffle, tri_shuffle):
+    def subPlots(self, di_diff, mono_shuffle, di_shuffle, tri_shuffle):
         mono_float = StringToFloat().stringToFloat(mono_shuffle)
         mono_shuffle_mean = [stat.mean(item) for item in mono_float] 
         di_float = StringToFloat().stringToFloat(di_shuffle)
@@ -81,7 +81,7 @@ class MatPlot():
 
         pass
 
-    def dictPlot(di_dict: dict) -> None:
+    def dictPlot(self, di_dict: dict) -> None:
         dict_1st = {}
         dict_2nd = {}
         dict_1st_2nd = {}
